@@ -1,0 +1,39 @@
+{
+  // ts 配置
+  "compilerOptions": {
+    "target": "esnext", // 指定编译完成的语法版本 esnext 为最新版本
+    "useDefineForClassFields": true,
+    "module": "esnext", // 指定使用模块规范
+    "moduleResolution": "node", // 解析模块路径
+    "strict": true, // 启用所有严格类型检查选项
+    "jsx": "preserve", // 指定 jsx 代码的生成: 'preserve', 'react-native', or 'react'
+    "sourceMap": true, // 生成相应的 '.map' 文件
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "lib": ["esnext", "dom"], // 指定要包含在编译中的库文件
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "allowJs": true,
+    "types": [
+      "vite/client",
+    ],
+    "baseUrl": "./",
+    // 扫描文件路径
+    "paths": {
+      "@/*": ["src/*"],
+      "@components/*": ["src/components/*"]
+    }
+  },
+  // 包括文件
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+  ],
+  // 排除文件
+  "exclude": ["dist", "node_modules"],
+  "references": [
+    { "path": "./tsconfig.node.json" }
+  ]
+}
