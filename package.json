@@ -1,5 +1,5 @@
 {
-  "name": "electron-vue-vite-template",
+  "name": "electron-vue3-vite-template",
   "version": "1.0.0",
   "main": "dist-electron/main/index.js",
   "description": "vite+ vue3 + electron + ant-design-vue + unocss + pinia template",
