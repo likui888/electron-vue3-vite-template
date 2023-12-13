@@ -1,6 +1,7 @@
 import {app, BrowserWindow, shell, ipcMain, globalShortcut} from 'electron'
 import { release } from 'node:os'
 import { join } from 'node:path'
+import pkg from '../../package.json'
 
 // The built directory structure
 //
@@ -40,9 +41,16 @@ const preload = join(__dirname, '../preload/index.js')
 const url = process.env.VITE_DEV_SERVER_URL
 const indexHtml = join(process.env.DIST, 'index.html')
 
+const isDev = !!!process.env.VITE_DEV_SERVER_URL
+
+
 async function createWindow() {
   win = new BrowserWindow({
-    title: 'Main window',
+    width: 1080,
+    height: 1920,
+    fullscreen: isDev,
+    autoHideMenuBar: isDev,
+    title: pkg.desc,
     icon: join(process.env.VITE_PUBLIC, 'favicon.ico'),
     webPreferences: {
       preload,
