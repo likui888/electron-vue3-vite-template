@@ -29,8 +29,6 @@ jobs:
         npm run build
     - name: export .exe file
       uses: actions/upload-artifact@v2
-      run: |
-        echo release/${{env.app_version}}/${{ env.app_name }}-${{env.app_version}}.exe
       with:
         name: app.exe
         path: release/${{env.app_version}}/${{ env.app_name }}-${{env.app_version}}.exe
