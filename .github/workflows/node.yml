@@ -27,7 +27,7 @@ jobs:
     - name: export .exe file
       uses: actions/upload-artifact@v2
       with:
-        name: release
+        name: app
         path: release
     - name: end build
       run: |
