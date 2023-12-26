@@ -52,7 +52,7 @@ jobs:
     - name: export .exe file
       uses: actions/upload-artifact@v2
       with:
-        name: app.exe
+        name: ${{env.app_name}}
         path: release/${{env.app_version}}/win-unpacked
 
     - name: end build
