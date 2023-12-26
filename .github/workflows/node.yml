@@ -14,20 +14,16 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
     steps:
     - uses: actions/checkout@v3
-    - uses: pnpm/action-setup@v2
-      with:
-        version: 8
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'pnpm'
     - name: install dependencies
       run: |
-        pnpm install
+        npm install
     - name: build app
       run: |
-        pnpm run build
+        npm run build
     - name: export .exe file
       uses: actions/upload-artifact@v2
       with:
