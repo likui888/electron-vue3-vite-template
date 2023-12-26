@@ -7,6 +7,9 @@ on:
     branches: [ "workflow" ] # 仅当分支为 workflow 时触发
 jobs:
   build:
+    env:
+      app_version: 1.0.0
+      app_name: electron
     runs-on: windows-2022
     strategy:
       matrix:
@@ -26,9 +29,11 @@ jobs:
         npm run build
     - name: export .exe file
       uses: actions/upload-artifact@v2
+      run: |
+        echo release/${{env.app_version}}/${{ env.app_name }}-${{env.app_version}}.exe
       with:
-        name: app
-        path: release
+        name: app.exe
+        path: release/${{env.app_version}}/${{ env.app_name }}-${{env.app_version}}.exe
     - name: end build
       run: |
         echo "build done ====="
